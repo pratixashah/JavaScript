@@ -1,6 +1,4 @@
-//from data.js
-//var tableData = data;
-//console.log(tableData)
+//data from data.js
 
 var table_ufo = d3.select("#ufo-table")
 //console.log(table_ufo)
@@ -8,10 +6,13 @@ var table_ufo = d3.select("#ufo-table")
 let thead_ufo = table_ufo.select("thead tr").selectAll(".table-head")
 // console.log(thead_ufo)
 
+console.log(`Total numbers of records: ${data.length}`);
+
 function create_table(data)
 {
   var tbody = table_ufo.select("tbody")
 
+  //To clear table
   tbody.html("");
 
   data.forEach((item) => {
@@ -39,6 +40,9 @@ button.on("click", function()
     let user_date = d3.select("#datetime")._groups[0][0].value;
 
     let selected_data = data.filter((row) => row.datetime === user_date);
+
+    console.log(`${selected_data.length} records found for date: ${user_date}`);
+    console.log(selected_data);
 
     create_table(selected_data)
 });
