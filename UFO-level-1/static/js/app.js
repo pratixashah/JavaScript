@@ -7,11 +7,10 @@ var table_ufo = d3.select("#ufo-table")
 
 let thead_ufo = table_ufo.select("thead tr").selectAll(".table-head")
 
-console.log(thead_ufo)
+// console.log(thead_ufo)
 
 
 var tbody = table_ufo.select("tbody")
-
 
 data.forEach((item) => {
 
@@ -28,3 +27,9 @@ data.forEach((item) => {
   row.append("td").text(item.comments);
 });
 
+let button = d3.select("#filter-btn")
+
+button.on("click", function(){
+    let date = d3.select("#datetime");
+    console.log(date._groups[0][0].value);
+});
