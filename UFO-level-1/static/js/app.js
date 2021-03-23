@@ -30,6 +30,30 @@ data.forEach((item) => {
 let button = d3.select("#filter-btn")
 
 button.on("click", function(){
-    let date = d3.select("#datetime");
-    console.log(date._groups[0][0].value);
+    let date = d3.select("#datetime")._groups[0][0].value;
+
+    console.log(date);
+
+    console.log(tbody._groups[0][0]);
+
+    for(let i=0;i<= tbody._groups[0][0].rows.length-1; i++ )
+    {
+      let table_date = tbody._groups[0][0].rows[i].cells[0].innerHTML
+      // console.log(tbody._groups[0][0].rows)
+
+      selected_date_data= []
+
+      // data.forEach((item) => {
+      //   if(table_date === item.datetime)
+      //   {
+      //     selected_date_data.append()
+      //   }
+      // }
+      
+      // if(date === table_date)
+      // {
+      //   table_date.attr("style", "font-family: Courie");
+      //   // style("background-color", "red")
+      // }
+    }
 });
