@@ -38,8 +38,23 @@ let button = d3.select("#filter-btn")
 button.on("click", function()
   {
     let user_date = d3.select("#datetime")._groups[0][0].value;
+    let user_city = d3.select("#city")._groups[0][0].value;
+    let user_state = d3.select("#state")._groups[0][0].value;
+    let user_country = d3.select("#country")._groups[0][0].value;
+    let user_shape = d3.select("#shape")._groups[0][0].value;
 
-    let selected_data = data.filter((row) => row.datetime === user_date);
+    console.log(user_date);
+    console.log(user_city);
+    console.log(user_state);
+    console.log(user_country);
+    console.log(user_shape);
+
+    let selected_data = data.filter((row) => 
+      row.datetime === user_date && 
+      row.city === user_city && 
+      row.state === user_state && 
+      row.country === user_country && 
+      row.shape === user_shape);
 
     console.log(`${selected_data.length} records found for date: ${user_date}`);
     console.log(selected_data);
