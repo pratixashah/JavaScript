@@ -37,26 +37,111 @@ let button = d3.select("#filter-btn")
 
 button.on("click", function()
   {
-    let user_date = d3.select("#datetime")._groups[0][0].value;
-    let user_city = d3.select("#city")._groups[0][0].value;
-    let user_state = d3.select("#state")._groups[0][0].value;
-    let user_country = d3.select("#country")._groups[0][0].value;
-    let user_shape = d3.select("#shape")._groups[0][0].value;
+    let user_date = d3.select("#datetime").property("value");
+    let user_city = d3.select("#city").property("value");
+    let user_state = d3.select("#state").property("value");
+    let user_country = d3.select("#country").property("value");
+    let user_shape = d3.select("#shape").property("value");
 
-    console.log(user_date);
-    console.log(user_city);
-    console.log(user_state);
-    console.log(user_country);
-    console.log(user_shape);
+    if(user_date.length != 0)
+    {
+      console.log(`Selected User Date: ${user_date}`);
+    }
+    
+    if(user_city.length != 0)
+    {
+      console.log(`Selected User City: ${user_city}`);
+    }
 
-    let selected_data = data.filter((row) => 
-      row.datetime === user_date && 
-      row.city === user_city && 
-      row.state === user_state && 
-      row.country === user_country && 
-      row.shape === user_shape);
+    if(user_state.length != 0)
+    {
+      console.log(`Selected User State: ${user_state}`);
+    }
 
-    console.log(`${selected_data.length} records found for date: ${user_date}`);
+    if(user_country.length != 0)
+    {
+      console.log(`Selected User Country: ${user_country}`);
+    }
+
+    if(user_shape.length != 0)
+    {
+      console.log(`Selected User Shape: ${user_shape}`);
+    }
+
+    function filterData(row)
+    {
+      let boolRow = true;
+
+      if(user_date.length != 0 && row.datetime.trim() != user_date.trim())
+      {
+        boolRow = false;
+      }
+
+      if(user_city.length != 0 && row.city.trim().toLowerCase() != user_city.trim().toLowerCase())
+      {
+        boolRow = false;
+      }
+
+      if(user_state.length != 0 && row.state.trim().toLowerCase() != user_state.trim().toLowerCase())
+      {
+        boolRow = false;
+      }
+
+      if(user_country.length != 0 && row.country.trim().toLowerCase() != user_country.trim().toLowerCase())
+      {
+        boolRow = false;
+      }
+
+      if(user_shape.length != 0 && row.shape.trim().toLowerCase() != user_shape.trim().toLowerCase())
+      {
+        boolRow = false;
+      }
+
+      return boolRow;
+    }
+
+    let selected_data = data.filter((row) => filterData(row))
+
+
+    // if(user_date.length != 0)
+    // {
+    //   console.log(`Selected User Date: ${user_date}`);
+    //   selected_data = selected_data.filter((row) => row.datetime === user_date);
+    // }
+    
+    // if(user_city.length != 0)
+    // {
+    //   console.log(`Selected User City: ${user_city}`);
+    //   selected_data = selected_data.filter((row) => row.city === user_city);
+    // }
+
+    // if(user_state.length != 0)
+    // {
+    //   console.log(`Selected User State: ${user_state}`);
+    //   selected_data = selected_data.filter((row) => row.state === user_state);
+    // }
+
+    // if(user_country.length != 0)
+    // {
+    //   console.log(`Selected User Country: ${user_country}`);
+    //   selected_data = selected_data.filter((row) => row.country === user_country);
+    // }
+
+    // if(user_shape.length != 0)
+    // {
+    //   console.log(`Selected User Shape: ${user_shape}`);
+    //   selected_data = selected_data.filter((row) => row.shape === user_shape);
+    // }
+
+    // let selected_data = data.filter((row) => 
+    //   (user_date.length === 0 || row.datetime === user_date) &&
+    //   (user_city.length === 0 || row.city === user_city) &&
+    //   (user_state.length === 0 || row.state === user_state) &&
+    //   (user_country.length === 0 || row.country === user_country) &&
+    //   (user_shape.length === 0 || row.shape === user_shape)
+    // );
+
+    // console.log(`${selected_data.length} records found for date: ${user_date}`);
     console.log(selected_data);
 
     create_table(selected_data)
