@@ -105,11 +105,10 @@ button.on("click", function()
     console.log(selected_data);
 
     create_table(selected_data);
-
   });
 
   // Useful comments
-  
+
     // if(user_date.length != 0)
     // {
     //   console.log(`Selected User Date: ${user_date}`);

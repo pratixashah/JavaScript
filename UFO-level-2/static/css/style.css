@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: Ubuntu, sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 
 html,
@@ -42,6 +42,7 @@ body {
   padding: 5px;
   margin: 0;
 }
+
 
 /* This CSS styles the ufo icon in the navbar */
 .nav-ufo {
@@ -87,9 +88,10 @@ select {
   margin-top: 50px;
 }
 
-.margin-top-50 {
-  margin-top: 50px;
+.margin-top-30 {
+  margin-top: 30px;
 }
+
 
 /* The styles for the parallax */
 .hero {
