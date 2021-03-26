@@ -29,6 +29,10 @@ function create_table(data)
     row.append("td").text(item.durationMinutes);
     row.append("td").text(item.comments);
   });
+
+  let lblMessage = d3.select("#lblmessage")
+  lblMessage.text(`${data.length} records found.`);
+  console.log(`Total numbers of records: ${data.length}`);
 }
 
 create_table(data)
@@ -39,10 +43,18 @@ button.on("click", function()
   {
     let user_date = d3.select("#datetime")._groups[0][0].value;
 
-    let selected_data = data.filter((row) => row.datetime === user_date);
+    if(user_date.length != 0)
+    {
+      let selected_data = data.filter((row) => row.datetime === user_date);
 
-    console.log(`${selected_data.length} records found for date: ${user_date}`);
-    console.log(selected_data);
+      console.log(`${selected_data.length} records found for date: ${user_date}`);
+      console.log(selected_data);
 
-    create_table(selected_data)
+      create_table(selected_data)
+    }
+    else
+    {
+      create_table(data);
+    }
+
 });
