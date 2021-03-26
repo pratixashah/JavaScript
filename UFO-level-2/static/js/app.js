@@ -6,8 +6,6 @@ var table_ufo = d3.select("#ufo-table")
 let thead_ufo = table_ufo.select("thead tr").selectAll(".table-head")
 // console.log(thead_ufo)
 
-console.log(`Total numbers of records: ${data.length}`);
-
 function create_table(data)
 {
   var tbody = table_ufo.select("tbody")
@@ -29,6 +27,10 @@ function create_table(data)
     row.append("td").text(item.durationMinutes);
     row.append("td").text(item.comments);
   });
+
+  let lblMessage = d3.select("#lblmessage")
+  lblMessage.text(`${data.length} records found.`);
+  console.log(`Total numbers of records: ${data.length}`);
 }
 
 create_table(data)
