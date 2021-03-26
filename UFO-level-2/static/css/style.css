@@ -12,7 +12,7 @@ body {
 }
 
 .filterrow{
-  padding-bottom: 40px;
+  padding-bottom: 30px;
 }
 
 /* Adding styles to the aside and filter form */
@@ -27,14 +27,22 @@ body {
 .filters {
   margin-top: 10px;
 }
+.table{
+  background-color:rgb(202, 199, 199)
+}
 
 #table-area th {
   text-align: center;
-  background-color:darkblue;
+  background-color:#557A95;
   color:white;
   padding-bottom: 10px;
 }
 
+.btn
+{
+  background-color:#557A95;
+  color:white;
+}
 
 /* media queries which will only be activated at specific screen sizes */
 @media (max-width: 800px) {

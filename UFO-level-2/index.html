@@ -22,37 +22,38 @@
     </nav>
     <div class="container">
       <div class="row margin-top-30">
-        <div class="col-md-12 ">
-          <div class="col-md-2 filterrow">
-            <label for="date">Enter a Date</label>
+        <div class="col-md-12 filterrow">
+          <div class="col-md-2">
+            <label for="date">Date</label>
             <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
           </div>
           <div class="col-md-2">
-            <label for="city">Enter a City</label>
+            <label for="city">City</label>
             <input class="form-control" id="city" type="text" placeholder="benton">
           </div>
           <div class="col-md-2">
-            <label for="state">Enter a State</label>
+            <label for="state">State</label>
             <input class="form-control" id="state" type="text" placeholder="ca">
           </div>
           <div class="col-md-2">
-            <label for="country">Enter a Country</label>
+            <label for="country">Country</label>
             <input class="form-control" id="country" type="text" placeholder="us">
           </div>
           <div class="col-md-2">
-            <label for="shape">Enter a Shape</label>
+            <label for="shape">Shape</label>
             <input class="form-control" id="shape" type="text" placeholder="circle">
           </div>
           <div class="col-md-2">
-            <button id="filter-btn" type="button" class="btn btn-default" style="margin-top: 23px;">Filter Table</button>
+            <button id="filter-btn" type="button" class="btn btn-default" style="margin-top: 23px;">Search</button>
           </div>
         </div>
         
         <div class="col-md-12 margin-top-30">
           <div id="table-area" class="">
-            <table id="ufo-table" class="table table-striped">
+            <table id="ufo-table" class="table table-striped table-hover table-sm table-responsive">
+              <caption>List of UFO Sighting</caption>
               <thead>
-                <tr>
+                <tr class="table-dark">
                   <th class="table-head">Date</th>
                   <th class="table-head">City</th>
                   <th class="table-head">State</th>
