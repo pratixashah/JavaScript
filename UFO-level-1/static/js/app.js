@@ -8,6 +8,7 @@ let thead_ufo = table_ufo.select("thead tr").selectAll(".table-head")
 
 console.log(`Total numbers of records: ${data.length}`);
 
+// To create table
 function create_table(data)
 {
   var tbody = table_ufo.select("tbody")
@@ -30,6 +31,7 @@ function create_table(data)
     row.append("td").text(item.comments);
   });
 
+  // To display message
   let lblMessage = d3.select("#lblmessage")
   lblMessage.text(`${data.length} records found.`);
   console.log(`Total numbers of records: ${data.length}`);
@@ -37,23 +39,29 @@ function create_table(data)
 
 create_table(data)
 
+// To add event on click button
 let button = d3.select("#filter-btn")
 
 button.on("click", function()
   {
-    let user_date = d3.select("#datetime")._groups[0][0].value;
+    // To get date entered by user
+    let user_date = d3.select("#datetime").property("value");
 
+    // If user has entered date
     if(user_date.length != 0)
     {
+      // Filter data
       let selected_data = data.filter((row) => row.datetime === user_date);
 
       console.log(`${selected_data.length} records found for date: ${user_date}`);
       console.log(selected_data);
 
+      // Create table with filtered data
       create_table(selected_data)
     }
     else
     {
+      // Create table with all data by detault
       create_table(data);
     }
 

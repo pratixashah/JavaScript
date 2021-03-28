@@ -6,6 +6,7 @@ var table_ufo = d3.select("#ufo-table")
 let thead_ufo = table_ufo.select("thead tr").selectAll(".table-head")
 // console.log(thead_ufo)
 
+// To create table
 function create_table(data)
 {
   var tbody = table_ufo.select("tbody")
@@ -28,6 +29,8 @@ function create_table(data)
     row.append("td").text(item.comments);
   });
 
+  
+  // To display message
   let lblMessage = d3.select("#lblmessage")
   lblMessage.text(`${data.length} records found.`);
   console.log(`Total numbers of records: ${data.length}`);
@@ -35,41 +38,49 @@ function create_table(data)
 
 create_table(data)
 
+// To add event on click button
 let button = d3.select("#filter-btn")
 
 button.on("click", function()
   {
+    // To get data entered by user
     let user_date = d3.select("#datetime").property("value");
     let user_city = d3.select("#city").property("value");
     let user_state = d3.select("#state").property("value");
     let user_country = d3.select("#country").property("value");
     let user_shape = d3.select("#shape").property("value");
 
+    // If user has entered date
     if(user_date.length != 0)
     {
       console.log(`Selected User Date: ${user_date}`);
     }
     
+    // If user has entered city
     if(user_city.length != 0)
     {
       console.log(`Selected User City: ${user_city}`);
     }
 
+    // If user has entered state
     if(user_state.length != 0)
     {
       console.log(`Selected User State: ${user_state}`);
     }
 
+    // If user has entered country
     if(user_country.length != 0)
     {
       console.log(`Selected User Country: ${user_country}`);
     }
 
+    // If user has entered shape
     if(user_shape.length != 0)
     {
       console.log(`Selected User Shape: ${user_shape}`);
     }
 
+    // Filter data function
     function filterData(row)
     {
       let boolRow = true;
@@ -102,10 +113,12 @@ button.on("click", function()
       return boolRow;
     }
 
+    // Filter data
     let selected_data = data.filter((row) => filterData(row))
 
     console.log(selected_data);
 
+    // Create table with filtered data
     create_table(selected_data);
   });
 
